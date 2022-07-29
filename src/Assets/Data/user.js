@@ -1,0 +1,8 @@
+const User = [
+  {
+    email: 'dorime@gmail.com',
+    password: 'dorime'
+  }
+]
+
+export { User };

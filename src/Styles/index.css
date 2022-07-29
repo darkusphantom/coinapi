@@ -1,0 +1,24 @@
+:root {
+  --green-principal: #24e010;
+  --yellow-principal: #c1c313;
+
+  --font-size-large: 16px;
+  --font-size-medium: 14px;
+  --font-size-small: 12px;
+  --type-font: 'Muli', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+  --font-page: normal / 400, var(--font-size-large), var(--type-font);
+}
+
+body {
+  margin: 0;
+  font-size: var(--font-size-large);
+  font-family: var(--type-font);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
