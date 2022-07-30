@@ -1,0 +1,47 @@
+.login-container-register {
+  font-size: var(--font-size-medium);
+}
+
+.login-container-register a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.login-container-register a:hover {
+  text-decoration: underline;
+}
+
+.input {
+  background-color: transparent;
+  border-top: 0;
+  border-left: 0;
+  border-right: 0;
+  border-bottom: 2px solid #fff;
+  margin-bottom: 20px;
+  padding: 0 20px;
+  outline: none;
+  height: 50px;
+}
+
+::placeholder {
+  color: #fff;
+}
+
+.button-login {
+  background-color: rgba(255, 255, 255, 0.1);
+  border: none;
+  border-radius: 25px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  height: 50px;
+  letter-spacing: 1px;
+}
+
+.message-error {
+  margin: 0 0 12px 12px;
+  font-size: var(--font-size-small);
+  color: red;
+  font-weight: 600;
+}
