@@ -1,104 +1,90 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useRef } from "react";
+import { Link, withRouter } from "react-router-dom";
 import { User } from "../../Assets/Data/user.js";
 import "./LoginForm.css";
 
-const LoginForm = () => {
-  const [userState, setUserState] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [errorMessage, setErrorMessage] = useState({
-    email: false,
-    password: false,
-  });
-
-  const onSetEmail = (emailValue) => {
-    setUserState({
-      ...userState,
-      email: emailValue,
-    });
+const LoginForm = ({ title, btnSubmitText, login }) => {
+  //Link router
+  const routerLogin = () => {
+    return login === "Login" ? (
+      <Link to="/login">{login}</Link>
+    ) : (
+      <Link to="/register">{login}</Link>
+    );
   };
 
-  const onSetPassword = (passwordValue) => {
-    setUserState({
-      ...userState,
-      password: passwordValue,
-    });
+  const [errorMessages, setErrorMessages] = useState({});
+  const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const form = useRef(null);
+
+  const errors = {
+    email: "This email is not register",
+    password: "Wrong password",
   };
 
-  const onInvalidEmail = (messageState) => {
-    setErrorMessage({
-      ...errorMessage,
-      email: messageState,
-    });
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    console.log(event);
+    const formData = new FormData(form.current);
+    const data = {
+      email: formData.get("email"),
+      password: formData.get("password"),
+    };
+
+    const userData = User.find((user) => user.email === data.email);
+
+    if (userData) {
+      if (userData.password !== data.password) {
+        setErrorMessages({
+          name: "password",
+          message: errors.password,
+        });
+      } else {
+        setErrorMessages({});
+        setIsSubmitted(true);
+      }
+    } else {
+      setErrorMessages({
+        name: "email",
+        message: errors.email,
+      });
+    }
   };
 
-  const onInvalidPassword = (messageState) => {
-    setErrorMessage({
-      ...errorMessage,
-      password: messageState,
-    });
-  };
-
-  const verifyEmail = () => {
-    userState.email !== User[0].email
-      ? onInvalidEmail(true)
-      : onInvalidEmail(false);
-  };
-
-  const verifyPassword = () => {
-    userState.password !== User[0].password
-      ? onInvalidPassword(true)
-      : onInvalidPassword(false);
-  };
-
-  const onSubmitUser = (event) => {
-    verifyEmail();
-    verifyPassword();
+  const renderErrorMessage = (nameError) => {
+    return (
+      nameError === errorMessages.name && (
+        <p className="message-error">{errorMessages.message}</p>
+      )
+    );
   };
 
   return (
     <Fragment>
-      <h2 className="login-title">Login</h2>
-      <form className="login-container-form" action="">
+      <h2 className="login-title">{title}</h2>
+      <form className="login-container-form" action="/home" ref={form}>
         <input
           type="text"
           className="input"
           id="email"
           name="email"
           placeholder="Email"
-          value={userState.email}
-          onChange={(event) => onSetEmail(event.target.value)}
         />
-
-        {errorMessage.email && <p className="message-error">Email invalid</p>}
-
+        {renderErrorMessage("email")}
         <input
           type="password"
           className="input"
           id="password"
           name="password"
           placeholder="Password"
-          value={userState.password}
-          onChange={(event) => onSetPassword(event.target.value)}
         />
-
-        {errorMessage.password && (
-          <p className="message-error">Password invalid</p>
-        )}
-
-        <button
-          type="button"
-          className="button-login"
-          onClick={(event) => onSubmitUser(event)}
-        >
-          Login
+        {renderErrorMessage("password")}
+        <button className="button-login" onClick={handleSubmit}>
+          {btnSubmitText}
         </button>
       </form>
-      <p className="login-container-register">
-        <a>Register</a>
-      </p>
+      <p className="login-container-register">{routerLogin()}</p>
     </Fragment>
   );
 };

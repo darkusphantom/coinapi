@@ -2,15 +2,15 @@ import React from "react";
 import { HeaderPage } from "../../Components/HeaderPage";
 import { FooterPage } from "../../Components/FooterPage";
 import { LoginForm } from "../../Components/LoginForm";
-import "./Login.css";
+import "./Register.css";
 
-const Login = () => {
+const Register = () => {
   return (
-    <div className="page-login">
+    <div className="page-register">
       <HeaderPage />
-      <section className="login">
-        <section className="login-container">
-          <LoginForm title="Login" btnSubmitText="Login" login="Register" />
+      <section className="register">
+        <section className="register-container">
+          <LoginForm title="Register" btnSubmitText="Register" login="Login" />
         </section>
       </section>
       <FooterPage />
@@ -18,4 +18,4 @@ const Login = () => {
   );
 };
 
-export { Login };
+export { Register };
