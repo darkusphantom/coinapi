@@ -1,7 +1,9 @@
 import React from "react";
 import { HeaderPage } from "../../Components/HeaderPage";
 import { FooterPage } from "../../Components/FooterPage";
-import { LoginForm } from "../../Components/LoginForm";
+import { ContainerFormUser } from "../../Containers/ContainerFormUser";
+import { FormUser } from "../../Components/FormUser";
+import { User } from "../../Assets/Data/user.js";
 import "./Register.css";
 
 const Register = () => {
@@ -10,7 +12,9 @@ const Register = () => {
       <HeaderPage />
       <section className="register">
         <section className="register-container">
-          <LoginForm title="Register" btnSubmitText="Register" login="Login" />
+          <ContainerFormUser routerName="register">
+            <FormUser routerName="Register" userDatabase={User} />
+          </ContainerFormUser>
         </section>
       </section>
       <FooterPage />

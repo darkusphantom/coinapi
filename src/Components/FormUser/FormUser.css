@@ -1,15 +1,7 @@
-.login-container-register {
+.formUser-container {
+  display: flex;
+  flex-direction: column;
   font-size: var(--font-size-medium);
-}
-
-.login-container-register a {
-  color: #fff;
-  font-weight: bold;
-  text-decoration: none;
-}
-
-.login-container-register a:hover {
-  text-decoration: underline;
 }
 
 .input {
@@ -28,7 +20,7 @@
   color: #fff;
 }
 
-.button-login {
+.button-form {
   background-color: rgba(255, 255, 255, 0.1);
   border: none;
   border-radius: 25px;
@@ -37,11 +29,19 @@
   font-weight: bold;
   height: 50px;
   letter-spacing: 1px;
+  text-transform: capitalize;
 }
 
 .message-error {
   margin: 0 0 12px 12px;
   font-size: var(--font-size-small);
   color: red;
+  font-weight: 600;
+}
+
+.message-correct {
+  margin: 24px auto 0 auto;
+  text-align: center;
+  font-size: var(--font-size-medium);
   font-weight: 600;
 }
