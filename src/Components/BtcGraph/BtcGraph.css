@@ -1,0 +1,20 @@
+.btc-graph-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btc-graph-title {
+  font-size: 1.4rem;
+  text-transform: uppercase;
+}
+
+.btn-update {
+  background: #1177d0;
+  color: white;
+  width: 80px;
+  height: 40px;
+  border: none;
+  border-radius: 10px;
+  font-size: var(--font-size-medium);
+}

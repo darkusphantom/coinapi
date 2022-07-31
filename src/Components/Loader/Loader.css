@@ -1,0 +1,39 @@
+.loading-container {
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0 12px 0;
+  margin-top: 24px;
+  background: linear-gradient(
+    90deg,
+    var(--green-principal),
+    var(--yellow-principal)
+  );
+  background-size: 400% 400%;
+  border-radius: 5px;
+  box-shadow: 0px 5px 50px rgba(32, 35, 41, 0.15);
+  position: relative;
+  animation: loadingAnimation 3s ease-in-out infinite;
+}
+
+.loading-text {
+  margin: 24px 0 24px 24px;
+  /*width: calc(100% - 120px);*/
+  width: max-content;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 500;
+}
+
+@keyframes loadingAnimation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

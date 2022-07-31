@@ -1,0 +1,63 @@
+.btc-price {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 32px;
+}
+
+.container-btc-info {
+  display: flex;
+  width: 40%;
+}
+
+.container-btc-details {
+  display: flex;
+  flex-direction: column;
+  width: 40%;
+}
+
+.btc-price-name {
+  margin-right: 12px;
+  font-size: var(--font-size-large);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.btc-price-currencySymbol {
+  margin-right: 6px;
+}
+
+.btc-price-symbol {
+  background: rgba(0, 0, 0, 0.1);
+  color: var(--gray);
+  padding: 8px;
+  border-radius: 6px;
+  font-size: var(--font-size-small);
+  font-weight: bold;
+}
+
+.btc-price-price {
+  margin: 0 0 10px 0;
+  color: var(--gray);
+  font-size: var(--font-size-small);
+  font-weight: bold;
+}
+
+.btc-price-rate {
+  margin: 0;
+  font-size: var(--font-size-large);
+  font-weight: bold;
+}
+
+@media screen and (min-width: 772px) {
+  .btc-price {
+    flex-direction: initial;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .btc-price-price {
+    text-align: right;
+  }
+  .btc-price-rate {
+    text-align: right;
+  }
+}

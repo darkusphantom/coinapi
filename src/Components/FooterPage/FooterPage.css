@@ -1,26 +1,30 @@
 .footer {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 100px;
-	background: var(--green-principal);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100px;
+  padding: 20px 0;
+  background: var(--green-principal);
 }
 
 .footer p {
-	color: white;
-	cursor: pointer;
-	font-size: 14px;
-	padding-left: 30px;
-	text-decoration: none;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  padding-left: 30px;
+  text-decoration: none;
 }
 
 .footer p:hover {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 @media screen and (max-width: 600px) {
-	.footer {
-		align-items: flex-start;
-		flex-direction: column;
-	}
+  .footer {
+    flex-direction: column;
+  }
+
+  .footer p {
+    padding-left: 0;
+  }
 }

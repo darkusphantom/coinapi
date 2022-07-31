@@ -1,0 +1,11 @@
+.btc {
+  background: linear-gradient(var(--yellow-principal), var(--green-principal));
+  min-height: calc(100vh - 220px);
+}
+
+.container-btc {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  margin: auto;
+}

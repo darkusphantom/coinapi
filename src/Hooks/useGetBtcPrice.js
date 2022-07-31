@@ -19,7 +19,6 @@ const useGetBtcPrice = (API) => {
       }
 
       const data = await response.json();
-      console.log(data);
       setBtcPrice(data);
     } catch (error) {
       console.error("We have an error:", error);
@@ -27,7 +26,7 @@ const useGetBtcPrice = (API) => {
   };
 
   useEffect(() => {
-    getBtcPrice(API);
+    setTimeout(() => getBtcPrice(API), 3000);
   }, []);
 
   return btcPrice;

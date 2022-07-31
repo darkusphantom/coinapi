@@ -1,0 +1,53 @@
+.btc-status {
+  display: flex;
+  flex-direction: column;
+}
+
+.btc-status-title {
+  font-size: var(--font-size-large);
+  text-transform: uppercase;
+}
+
+.btc-status-percent {
+  color: #fff;
+  margin-right: 6px;
+  padding: 6px;
+  border-radius: 6px;
+}
+
+.btc-status-market {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.market-item {
+  flex: 0 1 220px;
+  padding: 10px 0;
+}
+
+.market-item-name {
+  color: var(--gray-principal);
+  margin: 0 0 12px;
+  font-size: var(--font-size-medium);
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.market-item-name span {
+  text-transform: uppercase;
+}
+
+.market-item-price {
+  margin: 0;
+  font-weight: bold;
+  font-style: var(--font-size-medium);
+}
+
+.percent-green {
+  background: var(--up-color);
+}
+
+.percent-red {
+  background: var(--down-color);
+}

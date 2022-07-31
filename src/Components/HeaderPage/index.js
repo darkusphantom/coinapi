@@ -1,10 +1,8 @@
 import React from "react";
-import './HeaderPage.css'
+import "./HeaderPage.css";
 
-const HeaderPage = () => {
-  return (
-    <header className="header header-page"></header>
-  );
+const HeaderPage = ({ children }) => {
+  return <header className="header header-page">{children}</header>;
 };
 
 export { HeaderPage };

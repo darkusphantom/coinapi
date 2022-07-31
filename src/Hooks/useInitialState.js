@@ -1,23 +1,16 @@
 import { useState } from "react";
 
-const initialState = {
-  cart: [],
-};
+const initialState = false;
 
-const useInitialState = () => {
-  const [state, setState] = useState(initialState);
+const useLoading = () => {
+  const [isLoading, setIsLoading] = useState(initialState);
 
-  const addToCart = (payload) => {
-    setState({
-      ...state,
-      cart: [...state.cart, payload],
-    });
-  };
+  const changeStateLoading = (payload) => setIsLoading(payload);
 
   return {
-    state,
-    addToCart,
+    isLoading,
+    changeStateLoading,
   };
 };
 
-export { useInitialState };
+export { useLoading };
