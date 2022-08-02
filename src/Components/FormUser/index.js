@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+import { Link } from "react-router-dom";
 import { useFormUser } from "../../Hooks/useFormUser";
 import "./FormUser.css";
 
@@ -11,6 +12,24 @@ const FormUser = ({ routerName, userDatabase }) => {
   } = useFormUser({});
   const form = useRef(null);
 
+  const routerLogin = () => {
+    const redirectPage = () => {
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    };
+
+    return routerName !== "login" && routerName !== "Login" ? (
+      <Link to="/login" onClick={redirectPage}>
+        Login
+      </Link>
+    ) : (
+      <Link to="/register" onClick={redirectPage}>
+        Register
+      </Link>
+    );
+  };
+
   const getFormData = () => {
     const formData = new FormData(form.current);
 
@@ -22,8 +41,8 @@ const FormUser = ({ routerName, userDatabase }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
     const data = getFormData();
+
     if (routerName === "login" || routerName === "Login") {
       verifyUserLogin(data);
     }
@@ -65,6 +84,7 @@ const FormUser = ({ routerName, userDatabase }) => {
       <button className="button-form" onClick={handleSubmit}>
         {routerName}
       </button>
+      <p className="form-container-router">{routerLogin()}</p>
       {isSubmitted && <p className="message-correct">Everything is fine.</p>}
     </form>
   );

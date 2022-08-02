@@ -6,7 +6,7 @@ import { Register } from "../Pages/Register";
 import { NotFound } from "../Pages/NotFound";
 
 function App() {
-  const isLogged = false;
+  let isLogged = false;
   return (
     <BrowserRouter>
       <Fragment>

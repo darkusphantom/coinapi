@@ -1,0 +1,13 @@
+.btn-logout {
+  display: flex;
+  align-items: center;
+  background: none;
+  border: none;
+  font-size: var(--font-size-medium);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-logout img {
+  margin-right: 10px;
+}

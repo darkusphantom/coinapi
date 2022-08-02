@@ -9,6 +9,7 @@ import { TitlePage } from "../../Components/TitlePage";
 import { BtcPrice } from "../../Components/BtcPrice";
 import { BtcStatus } from "../../Components/BtcStatus";
 import { BtcGraph } from "../../Components/BtcGraph";
+import { BtnLogout } from "../../Components/BtnLogout";
 import { Loader } from "../../Components/Loader";
 
 const Home = () => {
@@ -41,6 +42,7 @@ const Home = () => {
     <ContainerHome>
       <HeaderPage>
         <TitlePage title="Home" />
+        <BtnLogout />
       </HeaderPage>
       <ContainerBtc>{renderBtcPrice()}</ContainerBtc>
       <FooterPage />

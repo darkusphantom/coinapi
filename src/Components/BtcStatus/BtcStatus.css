@@ -1,6 +1,7 @@
 .btc-status {
   display: flex;
   flex-direction: column;
+  text-align: center;
 }
 
 .btc-status-title {
@@ -18,6 +19,7 @@
 .btc-status-market {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 24px;
 }
 
@@ -50,4 +52,14 @@
 
 .percent-red {
   background: var(--down-color);
+}
+
+
+@media screen and (min-width: 772px) {
+  .btc-status {
+    text-align: initial;
+  }
+.btc-status-market {
+  justify-content: initial;
+}
 }
