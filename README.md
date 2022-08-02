@@ -2,6 +2,11 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## For logging to home
+
+Put some of the email and password in `src/Assets/Data/user.js` in the page login
+That users can log to Home
+
 ## Available Scripts
 
 In the project directory, you can run:
