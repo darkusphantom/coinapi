@@ -11,15 +11,12 @@ const FormUser = ({ routerName, userDatabase }) => {
     verifyUserRegister,
   } = useFormUser({});
   const form = useRef(null);
+  const routeLogin = routerName !== "login" && routerName !== "Login";
 
   const routerLogin = () => {
-    const redirectPage = () => {
-      setTimeout(() => {
-        window.location.reload();
-      }, 1000);
-    };
+    const redirectPage = () => window.location.reload();
 
-    return routerName !== "login" && routerName !== "Login" ? (
+    return routeLogin ? (
       <Link to="/login" onClick={redirectPage}>
         Login
       </Link>
@@ -43,13 +40,7 @@ const FormUser = ({ routerName, userDatabase }) => {
     event.preventDefault();
     const data = getFormData();
 
-    if (routerName === "login" || routerName === "Login") {
-      verifyUserLogin(data);
-    }
-
-    if (routerName === "register" || routerName === "Register") {
-      verifyUserRegister(data);
-    }
+    !!routeLogin ? verifyUserRegister(data) : verifyUserLogin(data);
   };
 
   const renderErrorMessage = (nameError) => {

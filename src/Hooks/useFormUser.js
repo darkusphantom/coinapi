@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 import { User } from "../Assets/Data/user";
 import { useUserLogged } from "./useUserLogged";
+import { useAuth } from "./useAuth";
 
 const initialState = {
   name: "",
@@ -16,9 +17,13 @@ const errors = {
 };
 
 const useFormUser = (data) => {
-  let history = useHistory();
+  const history = useHistory();
+  const location = useLocation();
+
   const [errorMessages, setErrorMessages] = useState(initialState);
   const [isSubmitted, setIsSubmitted] = useState(false);
+
+  const auth = useAuth();
   const { updateState } = useUserLogged();
   const { setUserLogged } = updateState;
 
@@ -32,10 +37,10 @@ const useFormUser = (data) => {
   const redirection = (direction) => {
     showErrorMessage({ name: "", message: "" });
     setIsSubmitted(true);
-    setTimeout(() => {
-      history.push(direction);
+    auth.signin(() => {
+      history.replace(direction);
       window.location.reload();
-    }, 2000);
+    });
   };
 
   const verifyUserLogin = (data) => {
@@ -51,7 +56,10 @@ const useFormUser = (data) => {
           return;
         } else {
           setUserLogged(true);
-          redirection("/home");
+          let { from } = location.state || { from: { pathname: "/home" } };
+          console.log(from);
+
+          redirection(from);
         }
       } else {
         showErrorMessage({ name: "email", message: errors.email });
