@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useHistory } from "react-router-dom";
 import { User } from "../Assets/Data/user";
+import { useUserLogged } from "./useUserLogged";
 
 const initialState = {
   name: "",
@@ -15,9 +16,11 @@ const errors = {
 };
 
 const useFormUser = (data) => {
+  let history = useHistory();
   const [errorMessages, setErrorMessages] = useState(initialState);
   const [isSubmitted, setIsSubmitted] = useState(false);
-  let history = useHistory();
+  const { updateState } = useUserLogged();
+  const { setUserLogged } = updateState;
 
   const showErrorMessage = (payload) => {
     setErrorMessages({
@@ -47,6 +50,7 @@ const useFormUser = (data) => {
           showErrorMessage({ name: "password", message: errors.password });
           return;
         } else {
+          setUserLogged(true);
           redirection("/home");
         }
       } else {

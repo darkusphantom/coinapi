@@ -4,20 +4,26 @@ import { Home } from "../Pages/Home";
 import { Login } from "../Pages/Login";
 import { Register } from "../Pages/Register";
 import { NotFound } from "../Pages/NotFound";
+import { useUserLogged } from "../Hooks/useUserLogged";
 
 function App() {
-  let isLogged = false;
+  //let isLogged = false;
+  const { states } = useUserLogged();
+  const { userData: user } = states;
+
   return (
     <BrowserRouter>
       <Fragment>
         <Switch>
           <Route exact path="/">
-            {!isLogged ? <Redirect to="/login" /> : <Home />}
+            {user.isLogged ? <Redirect to="/home" /> : <Login />}
           </Route>
           <Route exact path="/login">
-            <Login />
+            {user.isLogged ? <Redirect to="/home" /> : <Login />}
           </Route>
-          {<Route exact path="/register" component={Register} />}
+          <Route exact path="/register">
+            {user.isLogged ? <Redirect to="/home" /> : <Register />}
+          </Route>
           <Route exact path="/home" component={Home} />
           <Route path="*" component={NotFound} />
         </Switch>
